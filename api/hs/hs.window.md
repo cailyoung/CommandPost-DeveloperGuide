@@ -35,6 +35,7 @@ Notes:
  * [centerOnScreen](#centeronscreen)
  * [close](#close)
  * [focus](#focus)
+ * [focusTab](#focustab)
  * [focusWindowEast](#focuswindoweast)
  * [focusWindowNorth](#focuswindownorth)
  * [focusWindowSouth](#focuswindowsouth)
@@ -69,6 +70,7 @@ Notes:
  * [size](#size)
  * [snapshot](#snapshot)
  * [subrole](#subrole)
+ * [tabCount](#tabcount)
  * [title](#title)
  * [toggleFullScreen](#togglefullscreen)
  * [toggleZoom](#togglezoom)
@@ -105,7 +107,7 @@ Notes:
 | **Description**                                      | Returns all windows                                                                                         |
 | **Parameters**                                       | <ul><li>None</li></ul> |
 | **Returns**                                          | <ul><li>A list of `hs.window` objects representing all open windows</li></ul>          |
-| **Notes**                                            | <ul><li>`visibleWindows()`, `orderedWindows()`, `get()`, `find()`, and several more functions and methods in this and other</li><li>    modules make use of this function, so it is important to understand its limitations</li><li>This function queries all applications for their windows every time it is invoked; if you need to call it a lot and</li><li>   performance is not acceptable consider using the `hs.window.filter` module</li><li>This function can only return windows in the current Mission Control Space; if you need to address windows across</li><li>   different Spaces you can use the `hs.window.filter` module</li><li>   - if `Displays have separate Spaces` is *on* (in System Preferences>Mission Control) the current Space is defined</li><li>     as the union of all currently visible Spaces</li><li>   - minimized windows and hidden windows (i.e. belonging to hidden apps, e.g. via cmd-h) are always considered</li><li>     to be in the current Space</li><li>This function filters out the desktop "window"; use `hs.window.desktop()` to address it. (Note however that</li><li>   `hs.application.get'Finder':allWindows()` *will* include the desktop in the returned list)</li><li>Beside the limitations discussed above, this function will return *all* windows as reported by OSX, including some</li><li>   "windows" that one wouldn't expect: for example, every Google Chrome (actual) window has a companion window for its</li><li>   status bar; therefore you might get unexpected results  - in the Chrome example, calling `hs.window.focusWindowSouth()`</li><li>   from a Chrome window would end up "focusing" its status bar, and therefore the proper window itself, seemingly resulting</li><li>   in a no-op. In order to avoid such surprises you can use the `hs.window.filter` module, and more specifically</li><li>   the default windowfilter (`hs.window.filter.default`) which filters out known cases of not-actual-windows</li></ul>                |
+| **Notes**                                            | <ul><li>`visibleWindows()`, `orderedWindows()`, `get()`, `find()`, and several more functions and methods in this and other</li><li>    modules make use of this function, so it is important to understand its limitations</li><li>This function queries all applications for their windows every time it is invoked; if you need to call it a lot and</li><li>   performance is not acceptable consider using the `hs.window.filter` module</li><li>This function can only return windows in the current Mission Control Space; if you need to address windows across</li><li>   different Spaces you can use the `hs.window.filter` module</li><li>   - if `Displays have separate Spaces` is *on* (in System Preferences>Mission Control) the current Space is defined</li><li>     as the union of all currently visible Spaces</li><li>   - minimized windows and hidden windows (i.e. belonging to hidden apps, e.g. via cmd-h) are always considered</li><li>     to be in the current Space</li><li>This function filters out the desktop "window"; use `hs.window.desktop()` to address it. (Note however that</li><li>   `hs.application.get'Finder':allWindows()` *will* include the desktop in the returned list)</li><li>Beside the limitations discussed above, this function will return *all* windows as reported by OSX, including some</li><li>   "windows" that one wouldn't expect: for example, every Google Chrome (actual) window has a companion window for its</li><li>   status bar; therefore you might get unexpected results  - in the Chrome example, calling `hs.window.focusWindowSouth()`</li><li>   from a Chrome window would end up "focusing" its status bar, and therefore the proper window itself, seemingly resulting</li><li>   in a no-op. In order to avoid such surprises you can use the `hs.window.filter` module, and more specifically</li><li>   the default windowfilter (`hs.window.filter.default`) which filters out known cases of not-actual-windows</li><li>Some windows will not be reported by OSX - e.g. things that are on different Spaces, or things that are Full Screen</li></ul>                |
 
 #### [desktop](#desktop)
 | <span style="float: left;">**Signature**</span> | <span style="float: left;">`hs.window.desktop() -> hs.window object` </span>                                                          |
@@ -228,6 +230,14 @@ Notes:
 | **Description**                                      | Focuses the window                                                                                         |
 | **Parameters**                                       | <ul><li>None</li></ul> |
 | **Returns**                                          | <ul><li>The `hs.window` object</li></ul>          |
+
+#### [focusTab](#focustab)
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`hs.window:focusTab(index) -> bool` </span>                                                          |
+| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **Type**                                             | Method                                                                                         |
+| **Description**                                      | Focuses the tab in the window's tab group at index, or the last tab if                                                                                         |
+| **Parameters**                                       | <ul><li>index - A number, a 1-based index of a tab to focus</li></ul> |
+| **Returns**                                          | <ul><li>true if the tab was successfully pressed, or false if there was a problem</li></ul>          |
 
 #### [focusWindowEast](#focuswindoweast)
 | <span style="float: left;">**Signature**</span> | <span style="float: left;">`hs.window:focusWindowEast([candidateWindows[, frontmost[, strict]]]) -> boolean` </span>                                                          |
@@ -497,6 +507,14 @@ Notes:
 | **Parameters**                                       | <ul><li>None</li></ul> |
 | **Returns**                                          | <ul><li>A string containing the subrole of the window</li></ul>          |
 | **Notes**                                            | <ul><li>This typically helps to determine if a window is a special kind of window - such as a modal window, or a floating window</li></ul>                |
+
+#### [tabCount](#tabcount)
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`hs.window:tabCount() -> number or nil` </span>                                                          |
+| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **Type**                                             | Method                                                                                         |
+| **Description**                                      | Gets the number of tabs in the window has, or nil if the window doesn't have tabs.                                                                                         |
+| **Parameters**                                       | <ul><li>None</li></ul> |
+| **Returns**                                          | <ul><li>A number containing the number of tabs, or nil if an error occurred</li></ul>          |
 
 #### [title](#title)
 | <span style="float: left;">**Signature**</span> | <span style="float: left;">`hs.window:title() -> string` </span>                                                          |

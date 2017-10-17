@@ -155,10 +155,14 @@
 	* core
 		* [accessibility](api/plugins/plugins.core.accessibility.md)
 		* action
+			* [activator](api/plugins/plugins.core.action.activator.md)
+			* [handler](api/plugins/plugins.core.action.handler.md)
 			* [manager](api/plugins/plugins.core.action.manager.md)
 		* commands
+			* [actions](api/plugins/plugins.core.commands.actions.md)
 			* [commandaction](api/plugins/plugins.core.commands.commandaction.md)
 			* [global](api/plugins/plugins.core.commands.global.md)
+		* [console](api/plugins/plugins.core.console.md)
 		* helpandsupport
 			* [credits](api/plugins/plugins.core.helpandsupport.credits.md)
 			* [feedback](api/plugins/plugins.core.helpandsupport.feedback.md)
@@ -180,11 +184,23 @@
 				* [menubar](api/plugins/plugins.core.preferences.panels.menubar.md)
 				* [plugins](api/plugins/plugins.core.preferences.panels.plugins.md)
 				* [shortcuts](api/plugins/plugins.core.preferences.panels.shortcuts.md)
+				* [streamdeck](api/plugins/plugins.core.preferences.panels.streamdeck.md)
+				* [touchbar](api/plugins/plugins.core.preferences.panels.touchbar.md)
 				* [webapp](api/plugins/plugins.core.preferences.panels.webapp.md)
 			* [updates](api/plugins/plugins.core.preferences.updates.md)
 		* [quit](api/plugins/plugins.core.quit.md)
 		* [setup](api/plugins/plugins.core.setup.md)
 			* [panel](api/plugins/plugins.core.setup.panel.md)
+		* streamdeck
+			* [manager](api/plugins/plugins.core.streamdeck.manager.md)
+		* touchbar
+			* [manager](api/plugins/plugins.core.touchbar.manager.md)
+				* [virtual](api/plugins/plugins.core.touchbar.manager.virtual.md)
+					* [updateLocationCallback](api/plugins/plugins.core.touchbar.manager.virtual.updateLocationCallback.md)
+				* [widgets](api/plugins/plugins.core.touchbar.manager.widgets.md)
+				* widgets
+					* [volume](api/plugins/plugins.core.touchbar.widgets.volume.md)
+					* [windowSlide](api/plugins/plugins.core.touchbar.widgets.windowSlide.md)
 		* watchfolders
 			* [manager](api/plugins/plugins.core.watchfolders.manager.md)
 				* [panel](api/plugins/plugins.core.watchfolders.manager.panel.md)
@@ -194,10 +210,6 @@
 			* panels
 				* [media](api/plugins/plugins.compressor.watchfolders.panels.media.md)
 	* finalcutpro
-		* action
-			* [activator](api/plugins/plugins.finalcutpro.action.activator.md)
-			* [handler](api/plugins/plugins.finalcutpro.action.handler.md)
-			* [manager](api/plugins/plugins.finalcutpro.action.manager.md)
 		* commands
 			* [actions](api/plugins/plugins.finalcutpro.commands.actions.md)
 		* browser
@@ -236,7 +248,6 @@
 			* [proxyicon](api/plugins/plugins.finalcutpro.menu.proxyicon.md)
 			* [timeline](api/plugins/plugins.finalcutpro.menu.timeline.md)
 				* [assignshortcuts](api/plugins/plugins.finalcutpro.menu.timeline.assignshortcuts.md)
-				* [highlightplayhead](api/plugins/plugins.finalcutpro.menu.timeline.highlightplayhead.md)
 			* [tools](api/plugins/plugins.finalcutpro.menu.tools.md)
 				* [notifications](api/plugins/plugins.finalcutpro.menu.tools.notifications.md)
 			* [viewer](api/plugins/plugins.finalcutpro.menu.viewer.md)
@@ -247,7 +258,6 @@
 			* [prowl](api/plugins/plugins.finalcutpro.notifications.prowl.md)
 		* [open](api/plugins/plugins.finalcutpro.open.md)
 		* os
-			* [touchbar](api/plugins/plugins.finalcutpro.os.touchbar.md)
 			* [voice](api/plugins/plugins.finalcutpro.os.voice.md)
 		* preferences
 			* panels
@@ -255,8 +265,10 @@
 			* [scanfinalcutpro](api/plugins/plugins.finalcutpro.preferences.scanfinalcutpro.md)
 		* sharing
 			* [xml](api/plugins/plugins.finalcutpro.sharing.xml.md)
+		* [streamdeck](api/plugins/plugins.finalcutpro.streamdeck.md)
 		* [text2speech](api/plugins/plugins.finalcutpro.text2speech.md)
 		* timeline
+			* [audioeffects](api/plugins/plugins.finalcutpro.timeline.audioeffects.md)
 			* [colorboard](api/plugins/plugins.finalcutpro.timeline.colorboard.md)
 			* [disablewaveforms](api/plugins/plugins.finalcutpro.timeline.disablewaveforms.md)
 			* [effects](api/plugins/plugins.finalcutpro.timeline.effects.md)
@@ -271,12 +283,18 @@
 			* [playhead](api/plugins/plugins.finalcutpro.timeline.playhead.md)
 			* [pluginactions](api/plugins/plugins.finalcutpro.timeline.pluginactions.md)
 			* [pluginshortcuts](api/plugins/plugins.finalcutpro.timeline.pluginshortcuts.md)
+			* [pluginshortcuts](api/plugins/plugins.finalcutpro.timeline.pluginshortcuts.md)
 			* [preferences](api/plugins/plugins.finalcutpro.timeline.preferences.md)
 			* [selectalltimelineclips](api/plugins/plugins.finalcutpro.timeline.selectalltimelineclips.md)
 			* [titles](api/plugins/plugins.finalcutpro.timeline.titles.md)
 			* [transitions](api/plugins/plugins.finalcutpro.timeline.transitions.md)
 			* [videoeffects](api/plugins/plugins.finalcutpro.timeline.videoeffects.md)
 			* [zoomtoselection](api/plugins/plugins.finalcutpro.timeline.zoomtoselection.md)
+		* touchbar
+			* [virtual](api/plugins/plugins.finalcutpro.touchbar.virtual.md)
+			* widgets
+				* [colorboard](api/plugins/plugins.finalcutpro.touchbar.widgets.colorboard.md)
+				* [zoom](api/plugins/plugins.finalcutpro.touchbar.widgets.zoom.md)
 		* viewer
 			* [showtimecode](api/plugins/plugins.finalcutpro.viewer.showtimecode.md)
 			* [showtimelineinplayer](api/plugins/plugins.finalcutpro.viewer.showtimelineinplayer.md)

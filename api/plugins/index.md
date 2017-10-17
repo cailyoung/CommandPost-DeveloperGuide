@@ -19,7 +19,12 @@
 | [core.preferences.panels.plugins](core.preferences.panels.plugins.md)                          | Plugins Preferences Panel     |
 | [plugins.compressor.watchfolders.panels.media](plugins.compressor.watchfolders.panels.media.md)                          | Final Cut Pro Media Watch Folder Plugin.     |
 | [plugins.core.accessibility](plugins.core.accessibility.md)                          | Accessibility Plugin.     |
+| [plugins.core.action.activator](plugins.core.action.activator.md)                          | This module provides provides a way of activating choices provided by action handlers.     |
+| [plugins.core.action.handler](plugins.core.action.handler.md)                          | A support class for handler handlers. It is not used directly, rather     |
+| [plugins.core.action.manager](plugins.core.action.manager.md)                          | Action Manager Module.     |
+| [plugins.core.commands.actions](plugins.core.commands.actions.md)                          | An `action` which will execute a command with matching group/id values.     |
 | [plugins.core.commands.global](plugins.core.commands.global.md)                          | The 'global' command collection.     |
+| [plugins.core.console](plugins.core.console.md)                          | Global Console     |
 | [plugins.core.helpandsupport.credits](plugins.core.helpandsupport.credits.md)                          | Credits Menu Item.     |
 | [plugins.core.helpandsupport.developerguide](plugins.core.helpandsupport.developerguide.md)                          | Developer Guide Menu Item.     |
 | [plugins.core.helpandsupport.feedback](plugins.core.helpandsupport.feedback.md)                          | Feedback Menu Item.     |
@@ -38,17 +43,23 @@
 | [plugins.core.preferences.panels.general](plugins.core.preferences.panels.general.md)                          | General Preferences Panel     |
 | [plugins.core.preferences.panels.menubar](plugins.core.preferences.panels.menubar.md)                          | Menubar Preferences Panel     |
 | [plugins.core.preferences.panels.shortcuts](plugins.core.preferences.panels.shortcuts.md)                          | Shortcuts Preferences Panel     |
+| [plugins.core.preferences.panels.streamdeck](plugins.core.preferences.panels.streamdeck.md)                          | Stream Deck Preferences Panel     |
+| [plugins.core.preferences.panels.touchbar](plugins.core.preferences.panels.touchbar.md)                          | Touch Bar Preferences Panel     |
 | [plugins.core.preferences.panels.webapp](plugins.core.preferences.panels.webapp.md)                          | WebApp Preferences Panel     |
 | [plugins.core.preferences.updates](plugins.core.preferences.updates.md)                          | Updates Module.     |
 | [plugins.core.quit](plugins.core.quit.md)                          | Core CommandPost functionality     |
 | [plugins.core.setup](plugins.core.setup.md)                          | Manager for the CommandPost Setup Screen.     |
 | [plugins.core.setup.panel](plugins.core.setup.panel.md)                          | CommandPost Setup Window Panel.     |
+| [plugins.core.streamdeck.manager](plugins.core.streamdeck.manager.md)                          | Elgato Stream Deck Manager Plugin.     |
+| [plugins.core.touchbar.manager](plugins.core.touchbar.manager.md)                          | Touch Bar Manager Plugin.     |
+| [plugins.core.touchbar.manager.virtual](plugins.core.touchbar.manager.virtual.md)                          | Virtual Touch Bar Manager     |
+| [plugins.core.touchbar.manager.virtual.updateLocationCallback](plugins.core.touchbar.manager.virtual.updateLocationCallback.md)                          | Virtual Touch Bar Update Location Callback     |
+| [plugins.core.touchbar.manager.widgets](plugins.core.touchbar.manager.widgets.md)                          | Touch Bar Widgets Manager     |
+| [plugins.core.touchbar.widgets.volume](plugins.core.touchbar.widgets.volume.md)                          | Volume Slider     |
+| [plugins.core.touchbar.widgets.windowSlide](plugins.core.touchbar.widgets.windowSlide.md)                          | Window Slide Widget for Touch Bar.     |
 | [plugins.core.watchfolders.manager](plugins.core.watchfolders.manager.md)                          | Manager for the CommandPost Watch Folders Panel.     |
 | [plugins.core.watchfolders.manager.panel](plugins.core.watchfolders.manager.panel.md)                          | CommandPost Preferences Panel.     |
 | [plugins.core.webapp](plugins.core.webapp.md)                          | WebApp Plugin.     |
-| [plugins.finalcutpro.action.activator](plugins.finalcutpro.action.activator.md)                          | This module provides provides a way of activating choices provided by action handlers.     |
-| [plugins.finalcutpro.action.handler](plugins.finalcutpro.action.handler.md)                          | A support class for handler handlers. It is not used directly, rather     |
-| [plugins.finalcutpro.action.manager](plugins.finalcutpro.action.manager.md)                          | Action Manager Module.     |
 | [plugins.finalcutpro.browser.addnote](plugins.finalcutpro.browser.addnote.md)                          | Add Note Plugin.     |
 | [plugins.finalcutpro.browser.keywords](plugins.finalcutpro.browser.keywords.md)                          | Browser Keywords     |
 | [plugins.finalcutpro.browser.playhead](plugins.finalcutpro.browser.playhead.md)                          | Browser Playhead Plugin.     |
@@ -57,7 +68,7 @@
 | [plugins.finalcutpro.clipboard.shared](plugins.finalcutpro.clipboard.shared.md)                          | Shared Clipboard Plugin.     |
 | [plugins.finalcutpro.commands](plugins.finalcutpro.commands.md)                          | The 'fcpx' command collection.     |
 | [plugins.finalcutpro.commands.actions](plugins.finalcutpro.commands.actions.md)                          | An `action` which will execute a command with matching group/id values.     |
-| [plugins.finalcutpro.console](plugins.finalcutpro.console.md)                          | CommandPost Console     |
+| [plugins.finalcutpro.console](plugins.finalcutpro.console.md)                          | Final Cut Pro Console     |
 | [plugins.finalcutpro.export.batch](plugins.finalcutpro.export.batch.md)                          | Batch Export Plugin     |
 | [plugins.finalcutpro.feedback.bugreport](plugins.finalcutpro.feedback.bugreport.md)                          | Sends Apple a Bug Report or Feature Request for Final Cut Pro.     |
 | [plugins.finalcutpro.fullscreen.shortcuts](plugins.finalcutpro.fullscreen.shortcuts.md)                          | Fullscreen Shortcuts     |
@@ -77,7 +88,6 @@
 | [plugins.finalcutpro.menu.menuaction](plugins.finalcutpro.menu.menuaction.md)                          | A `action` which will trigger an Final Cut Pro menu with a matching path, if available/enabled.     |
 | [plugins.finalcutpro.menu.proxyicon](plugins.finalcutpro.menu.proxyicon.md)                          | Final Cut Pro Proxy Icon Plugin.     |
 | [plugins.finalcutpro.menu.timeline](plugins.finalcutpro.menu.timeline.md)                          | The TIMELINE menu section.     |
-| [plugins.finalcutpro.menu.timeline.highlightplayhead](plugins.finalcutpro.menu.timeline.highlightplayhead.md)                          | Highlight Playhead Menu.     |
 | [plugins.finalcutpro.menu.tools](plugins.finalcutpro.menu.tools.md)                          | The TOOLS menu section.     |
 | [plugins.finalcutpro.menu.tools.notifications](plugins.finalcutpro.menu.tools.notifications.md)                          | The AUTOMATION > 'Options' > 'Mobile Notifications' menu section.     |
 | [plugins.finalcutpro.menu.viewer](plugins.finalcutpro.menu.viewer.md)                          | The VIEWER menu section.     |
@@ -86,12 +96,13 @@
 | [plugins.finalcutpro.notifications.manager](plugins.finalcutpro.notifications.manager.md)                          | Notifications Manager Plugin.     |
 | [plugins.finalcutpro.notifications.prowl](plugins.finalcutpro.notifications.prowl.md)                          | Prowl Notifications Plugin.     |
 | [plugins.finalcutpro.open](plugins.finalcutpro.open.md)                          | Opens Final Cut Pro via Global Shortcut & Menubar.     |
-| [plugins.finalcutpro.os.touchbar](plugins.finalcutpro.os.touchbar.md)                          | Virtual Touch Bar Plugin.     |
 | [plugins.finalcutpro.os.voice](plugins.finalcutpro.os.voice.md)                          | Voice Command Plugin.     |
 | [plugins.finalcutpro.preferences.app](plugins.finalcutpro.preferences.app.md)                          | Final Cut Pro Preferences Panel     |
 | [plugins.finalcutpro.preferences.scanfinalcutpro](plugins.finalcutpro.preferences.scanfinalcutpro.md)                          | Scan Final Cut Pro.     |
 | [plugins.finalcutpro.sharing.xml](plugins.finalcutpro.sharing.xml.md)                          | Shared XML Plugin.     |
+| [plugins.finalcutpro.streamdeck](plugins.finalcutpro.streamdeck.md)                          | Stream Deck Plugin for Final Cut Pro.     |
 | [plugins.finalcutpro.text2speech](plugins.finalcutpro.text2speech.md)                          | Text to Speech Plugin.     |
+| [plugins.finalcutpro.timeline.audioeffects](plugins.finalcutpro.timeline.audioeffects.md)                          | Controls Final Cut Pro's Audio Effects.     |
 | [plugins.finalcutpro.timeline.colorboard](plugins.finalcutpro.timeline.colorboard.md)                          | Color Board Plugins.     |
 | [plugins.finalcutpro.timeline.disablewaveforms](plugins.finalcutpro.timeline.disablewaveforms.md)                          | Disable Waveforms Plugin.     |
 | [plugins.finalcutpro.timeline.generators](plugins.finalcutpro.timeline.generators.md)                          | Controls Final Cut Pro's Generators.     |
@@ -104,13 +115,16 @@
 | [plugins.finalcutpro.timeline.playback](plugins.finalcutpro.timeline.playback.md)                          | Playback Plugin.     |
 | [plugins.finalcutpro.timeline.playhead](plugins.finalcutpro.timeline.playhead.md)                          | Manages features relating to the Timeline Playhead.     |
 | [plugins.finalcutpro.timeline.pluginactions](plugins.finalcutpro.timeline.pluginactions.md)                          | Controls Final Cut Pro's Titles.     |
-| [plugins.finalcutpro.timeline.pluginshortcuts](plugins.finalcutpro.timeline.pluginshortcuts.md)                          | Controls Final Cut Pro's Titles.     |
+| [plugins.finalcutpro.timeline.pluginshortcuts](plugins.finalcutpro.timeline.pluginshortcuts.md)                          | Controls for Final Cut Pro's Plugin Shortcuts (for use with Hack Shortcuts).     |
 | [plugins.finalcutpro.timeline.preferences](plugins.finalcutpro.timeline.preferences.md)                          | Final Cut Pro Timeline Preferences.     |
 | [plugins.finalcutpro.timeline.selectalltimelineclips](plugins.finalcutpro.timeline.selectalltimelineclips.md)                          | Select All Timeline Clips     |
 | [plugins.finalcutpro.timeline.titles](plugins.finalcutpro.timeline.titles.md)                          | Controls Final Cut Pro's Titles.     |
 | [plugins.finalcutpro.timeline.transitions](plugins.finalcutpro.timeline.transitions.md)                          | Controls Final Cut Pro's Transitions.     |
-| [plugins.finalcutpro.timeline.videoeffects](plugins.finalcutpro.timeline.videoeffects.md)                          | Controls Final Cut Pro's Effects.     |
+| [plugins.finalcutpro.timeline.videoeffects](plugins.finalcutpro.timeline.videoeffects.md)                          | Controls Final Cut Pro's Video Effects.     |
 | [plugins.finalcutpro.timeline.zoomtoselection](plugins.finalcutpro.timeline.zoomtoselection.md)                          | Zoom the Timeline to fit the currently-selected clips.     |
+| [plugins.finalcutpro.touchbar.virtual](plugins.finalcutpro.touchbar.virtual.md)                          | Virtual Touch Bar Plugin.     |
+| [plugins.finalcutpro.touchbar.widgets.colorboard](plugins.finalcutpro.touchbar.widgets.colorboard.md)                          | Final Cut Pro Color Board Widget for Touch Bar.     |
+| [plugins.finalcutpro.touchbar.widgets.zoom](plugins.finalcutpro.touchbar.widgets.zoom.md)                          | Final Cut Pro Zoom Control Widget for Touch Bar.     |
 | [plugins.finalcutpro.viewer.showtimecode](plugins.finalcutpro.viewer.showtimecode.md)                          | Show Timeline In Player.     |
 | [plugins.finalcutpro.viewer.showtimelineinplayer](plugins.finalcutpro.viewer.showtimelineinplayer.md)                          | Show Timeline In Player.     |
 | [plugins.finalcutpro.viewer.timecodeoverlay](plugins.finalcutpro.viewer.timecodeoverlay.md)                          | Advanced Timecode Overlay.     |

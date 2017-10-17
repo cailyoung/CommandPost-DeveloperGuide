@@ -44,7 +44,9 @@ A collection of handy miscellaneous tools for Lua development.
  * [tableContains](#tablecontains)
  * [tableCount](#tablecount)
  * [trim](#trim)
+ * [unescape](#unescape)
  * [urlQueryStringDecode](#urlquerystringdecode)
+ * [volumeFormat](#volumeformat)
 
 ## API Documentation
 
@@ -364,6 +366,14 @@ A collection of handy miscellaneous tools for Lua development.
 | **Parameters**                                       | <ul><li>string - the string you want to trim</li></ul> |
 | **Returns**                                          | <ul><li>A trimmed string</li></ul>          |
 
+#### [unescape](#unescape)
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.tools.unescape(str) -> string` </span>                                                          |
+| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **Type**                                             | Function                                                                                         |
+| **Description**                                      | Removes any URL encoding in the provided string.                                                                                         |
+| **Parameters**                                       | <ul><li>str - the string to decode</li></ul> |
+| **Returns**                                          | <ul><li>A string with all "+" characters converted to spaces and all percent encoded sequences converted to their ASCII equivalents.</li></ul>          |
+
 #### [urlQueryStringDecode](#urlquerystringdecode)
 | <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.tools.urlQueryStringDecode() -> string` </span>                                                          |
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -371,4 +381,12 @@ A collection of handy miscellaneous tools for Lua development.
 | **Description**                                      | Decodes a URL Query String                                                                                         |
 | **Parameters**                                       | <ul><li>None</li></ul> |
 | **Returns**                                          | <ul><li>Decoded URL Query String as string</li></ul>          |
+
+#### [volumeFormat](#volumeformat)
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.tools.volumeFormat(path) -> string` </span>                                                          |
+| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **Type**                                             | Function                                                                                         |
+| **Description**                                      | Gives you the file system volume format of a path.                                                                                         |
+| **Parameters**                                       | <ul><li>path - the path you want to check as a string</li></ul> |
+| **Returns**                                          | <ul><li>The `NSURLVolumeLocalizedFormatDescriptionKey` as a string, otherwise `nil`.</li></ul>          |
 

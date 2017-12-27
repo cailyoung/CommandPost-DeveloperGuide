@@ -90,11 +90,13 @@ end
  * [FLEXO_LANGUAGES](#flexo_languages)
  * [getVersion](#getversion)
  * [PASTEBOARD_UTI](#pasteboard_uti)
+ * [PREFS_PATH](#prefs_path)
+ * [PREFS_PLIST_FILE](#prefs_plist_file)
  * [PREFS_PLIST_PATH](#prefs_plist_path)
  * [SUPPORTED_LANGUAGES](#supported_languages)
 * Functions - API calls offered directly by the extension
- * [getMotionTheme](#getmotiontheme)
  * [init](#init)
+ * [reset](#reset)
 * Fields - Variables which can only be accessed from an object returned by a constructor
  * [isFrontmost](#isfrontmost)
  * [isInstalled](#isinstalled)
@@ -107,6 +109,7 @@ end
  * [application](#application)
  * [browser](#browser)
  * [colorBoard](#colorboard)
+ * [colorInspector](#colorinspector)
  * [commandEditor](#commandeditor)
  * [effects](#effects)
  * [eventViewer](#eventviewer)
@@ -121,6 +124,7 @@ end
  * [getDefaultCommandSetPath](#getdefaultcommandsetpath)
  * [getFlexoLanguages](#getflexolanguages)
  * [getPasteboardUTI](#getpasteboarduti)
+ * [getPath](#getpath)
  * [getPreference](#getpreference)
  * [getPreferences](#getpreferences)
  * [getSupportedLanguage](#getsupportedlanguage)
@@ -135,7 +139,6 @@ end
  * [media](#media)
  * [mediaImport](#mediaimport)
  * [menuBar](#menubar)
- * [path](#path)
  * [performShortcut](#performshortcut)
  * [plugins](#plugins)
  * [preferencesWindow](#preferenceswindow)
@@ -223,6 +226,18 @@ end
 | **Type**                                             | Constant                                                                                         |
 | **Description**                                      | Final Cut Pro's Pasteboard UTI                                                                                         |
 
+#### [PREFS_PATH](#prefs_path)
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro.PREFS_PATH` </span>                                                          |
+| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **Type**                                             | Constant                                                                                         |
+| **Description**                                      | Final Cut Pro's Preferences Path                                                                                         |
+
+#### [PREFS_PLIST_FILE](#prefs_plist_file)
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro.PREFS_PLIST_FILE` </span>                                                          |
+| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **Type**                                             | Constant                                                                                         |
+| **Description**                                      | Final Cut Pro's Preferences File                                                                                         |
+
 #### [PREFS_PLIST_PATH](#prefs_plist_path)
 | <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro.PREFS_PLIST_PATH` </span>                                                          |
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -237,15 +252,6 @@ end
 
 ### Functions
 
-#### [getMotionTheme](#getmotiontheme)
-| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro.scannplugins.getMotionTheme(filename) -> string | nil` </span>                                                          |
-| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| **Type**                                             | Function                                                                                         |
-| **Description**                                      | Process a plugin so that it's added to the current scan                                                                                         |
-| **Parameters**                                       | <ul><li>filename - Filename of the plugin</li></ul> |
-| **Returns**                                          | <ul><li>The theme name, or `nil` if not found.</li></ul>          |
-| **Notes**                                            | <ul><li>getMotionTheme("~/Movies/Motion Templates.localized/Effects.localized/3065D03D-92D7-4FD9-B472-E524B87B5012.localized/DAEB0CAD-E702-4BF9-94B5-AE89D7F8FB00.localized/DAEB0CAD-E702-4BF9-94B5-AE89D7F8FB00.moef")</li></ul>                |
-
 #### [init](#init)
 | <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:init() -> App` </span>                                                          |
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -253,6 +259,14 @@ end
 | **Description**                                      | Initialises the app instance representing Final Cut Pro.                                                                                         |
 | **Parameters**                                       | <ul><li>None</li></ul> |
 | **Returns**                                          | <ul><li>The app.</li></ul>          |
+
+#### [reset](#reset)
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:reset() -> none` </span>                                                          |
+| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **Type**                                             | Function                                                                                         |
+| **Description**                                      | Resets the language cache                                                                                         |
+| **Parameters**                                       | <ul><li>None</li></ul> |
+| **Returns**                                          | <ul><li>None</li></ul>          |
 
 ### Fields
 
@@ -324,6 +338,14 @@ end
 | **Parameters**                                       | <ul><li>None</li></ul> |
 | **Returns**                                          | <ul><li>the ColorBoard</li></ul>          |
 
+#### [colorInspector](#colorinspector)
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:colorInspector() -> ColorInspector` </span>                                                          |
+| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **Type**                                             | Method                                                                                         |
+| **Description**                                      | Returns the ColorInspector instance from the primary window                                                                                         |
+| **Parameters**                                       | <ul><li>None</li></ul> |
+| **Returns**                                          | <ul><li>the ColorInspector</li></ul>          |
+
 #### [commandEditor](#commandeditor)
 | <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:commandEditor() -> commandEditor object` </span>                                                          |
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -377,7 +399,7 @@ end
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | **Type**                                             | Method                                                                                         |
 | **Description**                                      | Returns the 'Active Command Set' as a Table. The result is cached, so pass in                                                                                         |
-| **Parameters**                                       | <ul><li>forceReload	- (optional) If `true`, require the Command Set to be reloaded.</li></ul> |
+| **Parameters**                                       | <ul><li>[forceReload]	- If `true`, require the Command Set to be reloaded.</li></ul> |
 | **Returns**                                          | <ul><li>A table of the Active Command Set's contents, or `nil` if an error occurred</li></ul>          |
 
 #### [getActiveCommandSetPath](#getactivecommandsetpath)
@@ -417,7 +439,7 @@ end
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | **Type**                                             | Method                                                                                         |
 | **Description**                                      | Gets the path to the 'Default' Command Set.                                                                                         |
-| **Parameters**                                       | <ul><li>`language`	- (optional) The language code to use. Defaults to the current FCPX language.</li></ul> |
+| **Parameters**                                       | <ul><li>[language]	- The optional language code to use. Defaults to the current FCPX language.</li></ul> |
 | **Returns**                                          | <ul><li>The 'Default' Command Set path, or `nil` if an error occurred</li></ul>          |
 
 #### [getFlexoLanguages](#getflexolanguages)
@@ -436,20 +458,28 @@ end
 | **Parameters**                                       | <ul><li>None</li></ul> |
 | **Returns**                                          | <ul><li>A string of the Final Cut Pro Pasteboard UTI</li></ul>          |
 
+#### [getPath](#getpath)
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:getPath() -> string or nil` </span>                                                          |
+| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| **Type**                                             | Method                                                                                         |
+| **Description**                                      | Path to Final Cut Pro Application                                                                                         |
+| **Parameters**                                       | <ul><li>None</li></ul> |
+| **Returns**                                          | <ul><li>A string containing Final Cut Pro's filesystem path, or nil if Final Cut Pro's path could not be determined.</li></ul>          |
+
 #### [getPreference](#getpreference)
-| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:getPreference(value, default, forceReload) -> string or nil` </span>                                                          |
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:getPreference(value, [default], [forceReload]) -> string or nil` </span>                                                          |
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | **Type**                                             | Method                                                                                         |
 | **Description**                                      | Get an individual Final Cut Pro preference                                                                                         |
-| **Parameters**                                       | <ul><li>value 			- The preference you want to return</li><li>default			- (optional) The default value to return if the preference is not set.</li><li>forceReload		= (optional) If true, forces a reload of the app's preferences.</li></ul> |
+| **Parameters**                                       | <ul><li>value 			- The preference you want to return</li><li>[default]		- The optional default value to return if the preference is not set.</li><li>[forceReload]	- If `true`, optionally forces a reload of the app's preferences.</li></ul> |
 | **Returns**                                          | <ul><li>A string with the preference value, or nil if an error occurred</li></ul>          |
 
 #### [getPreferences](#getpreferences)
-| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:getPreferences() -> table or nil` </span>                                                          |
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:getPreferences([forceReload]) -> table or nil` </span>                                                          |
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | **Type**                                             | Method                                                                                         |
 | **Description**                                      | Gets Final Cut Pro's Preferences as a table. It checks if the preferences                                                                                         |
-| **Parameters**                                       | <ul><li>forceReload	- (optional) if true, a reload will be forced even if the file hasn't been modified.</li><li>preventMultipleReloads - (optional) if true, adds a 0.01 delay before reloading preferences (for use with the watcher)</li></ul> |
+| **Parameters**                                       | <ul><li>[forceReload]	- If `true`, an optional reload will be forced even if the file hasn't been modified.</li></ul> |
 | **Returns**                                          | <ul><li>A table with all of Final Cut Pro's preferences, or nil if an error occurred</li></ul>          |
 
 #### [getSupportedLanguage](#getsupportedlanguage)
@@ -477,7 +507,7 @@ end
 | **Returns**                                          | <ul><li>A cp.apple.finalcutpro otherwise nil</li></ul>          |
 
 #### [importXML](#importxml)
-| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:importXML() -> boolean` </span>                                                          |
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:importXML(path) -> boolean` </span>                                                          |
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | **Type**                                             | Method                                                                                         |
 | **Description**                                      | Imports an XML file into Final Cut Pro                                                                                         |
@@ -505,7 +535,7 @@ end
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | **Type**                                             | Method                                                                                         |
 | **Description**                                      | Looks up an application string and returns an array of keys that match. It will take into account current language the app is running in, or use `lang` if provided.                                                                                         |
-| **Parameters**                                       | <ul><li>`key`	- The key to look up.</li><li>`lang`	- The language (defaults to current FCPX language).</li></ul> |
+| **Parameters**                                       | <ul><li>`key`	- The key to look up.</li><li>`[lang]`	- The language (defaults to current FCPX language).</li></ul> |
 | **Returns**                                          | <ul><li>The array of keys with a matching string.</li></ul>          |
 | **Notes**                                            | <ul><li>This method may be very inefficient, since it has to search through every possible key/value pair to find matches. It is not recommended that this is used in production.</li></ul>                |
 
@@ -549,16 +579,8 @@ end
 | **Parameters**                                       | <ul><li>None</li></ul> |
 | **Returns**                                          | <ul><li>A MenuBar object</li></ul>          |
 
-#### [path](#path)
-| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:path() -> string or nil` </span>                                                          |
-| -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| **Type**                                             | Method                                                                                         |
-| **Description**                                      | Path to Final Cut Pro Application                                                                                         |
-| **Parameters**                                       | <ul><li>None</li></ul> |
-| **Returns**                                          | <ul><li>A string containing Final Cut Pro's filesystem path, or nil if Final Cut Pro's path could not be determined.</li></ul>          |
-
 #### [performShortcut](#performshortcut)
-| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:performShortcut() -> boolean` </span>                                                          |
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:performShortcut(whichShortcut) -> boolean` </span>                                                          |
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | **Type**                                             | Method                                                                                         |
 | **Description**                                      | Performs a Final Cut Pro Shortcut                                                                                         |
@@ -650,7 +672,7 @@ end
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | **Type**                                             | Method                                                                                         |
 | **Description**                                      | Looks up an application string with the specified `key`.                                                                                         |
-| **Parameters**                                       | <ul><li>`key`	- The key to look up.</li><li>`lang`	- The language code to use. Defaults to the current language.</li></ul> |
+| **Parameters**                                       | <ul><li>`key`	- The key to look up.</li><li>`[lang]` - The language code to use. Defaults to the current language.</li></ul> |
 | **Returns**                                          | <ul><li>The requested string or `nil` if the application is not running.</li></ul>          |
 
 #### [timeline](#timeline)
@@ -678,7 +700,7 @@ end
 | **Returns**                                          | <ul><li>A axuielementObject of Final Cut Pro</li></ul>          |
 
 #### [unwatch](#unwatch)
-| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:unwatch() -> boolean` </span>                                                          |
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:unwatch(id) -> boolean` </span>                                                          |
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | **Type**                                             | Method                                                                                         |
 | **Description**                                      | Stop watching for events that happen in the application for the specified ID.                                                                                         |
@@ -694,7 +716,7 @@ end
 | **Returns**                                          | <ul><li>the Viewer</li></ul>          |
 
 #### [watch](#watch)
-| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:watch() -> string` </span>                                                          |
+| <span style="float: left;">**Signature**</span> | <span style="float: left;">`cp.apple.finalcutpro:watch(events) -> string` </span>                                                          |
 | -----------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | **Type**                                             | Method                                                                                         |
 | **Description**                                      | Watch for events that happen in the application.                                                                                         |
